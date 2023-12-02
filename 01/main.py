@@ -7,19 +7,19 @@ class TestSolve(unittest.TestCase):
             "output/sample-part-1.txt"
         ) as sample_output:
             input_lines = sample_input.readlines()
-            output_lines = sample_output.readlines()
-            self.assertEqual(solve_part_1(input_lines), output_lines)
+            output = sample_output.read().strip()
+            self.assertEqual(solve_part_1(input_lines), output)
 
     def test_sample_part_2(self):
         with open("input/sample-part-2.txt") as sample_input, open(
             "output/sample-part-2.txt"
         ) as sample_output:
             input_lines = sample_input.readlines()
-            output_lines = sample_output.readlines()
-            self.assertEqual(solve_part_2(input_lines), output_lines)
+            output = sample_output.read().strip()
+            self.assertEqual(solve_part_2(input_lines), output)
 
 
-def solve_part_1(input_lines: list[str]) -> list[str]:
+def solve_part_1(input_lines: list[str]) -> str:
     total_calibration_value = 0
 
     for line in input_lines:
@@ -27,7 +27,7 @@ def solve_part_1(input_lines: list[str]) -> list[str]:
         line_calibration_value = int(digits[0] + digits[-1])
         total_calibration_value += line_calibration_value
 
-    return [str(total_calibration_value)]
+    return str(total_calibration_value)
 
 
 VALID_STRING_DIGITS = {
@@ -52,7 +52,7 @@ VALID_STRING_DIGITS = {
 }
 
 
-def solve_part_2(input_lines: list[str]) -> list[str]:
+def solve_part_2(input_lines: list[str]) -> str:
     total_calibration_value = 0
 
     for line in input_lines:
@@ -76,11 +76,7 @@ def solve_part_2(input_lines: list[str]) -> list[str]:
 
         total_calibration_value += int(str(lowest_digit) + str(highest_digit))
 
-    return [str(total_calibration_value)]
-
-
-def check_valid_digit(string: str) -> bool:
-    return False
+    return str(total_calibration_value)
 
 
 if __name__ == "__main__":
