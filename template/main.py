@@ -7,26 +7,26 @@ class TestSolve(unittest.TestCase):
             "output/sample-part-1.txt"
         ) as sample_output:
             input_lines = sample_input.read().splitlines()
-            output_lines = sample_output.read().splitlines()
-            self.assertEqual(solve_part_1(input_lines), output_lines)
+            output = sample_output.read().strip()
+            self.assertEqual(solve_part_1(input_lines), output)
 
     def test_sample_part_2(self):
         with open("input/sample-part-2.txt") as sample_input, open(
             "output/sample-part-2.txt"
         ) as sample_output:
             input_lines = sample_input.read().splitlines()
-            output_lines = sample_output.read().splitlines()
-            self.assertEqual(solve_part_2(input_lines), output_lines)
+            output = sample_output.read().strip()
+            self.assertEqual(solve_part_2(input_lines), output)
 
 
-def solve_part_1(input_lines: list[str]) -> list[str]:
+def solve_part_1(input_lines: list[str]) -> str:
     # TODO: fill out
-    return []
+    return ""
 
 
-def solve_part_2(input_lines: list[str]) -> list[str]:
+def solve_part_2(input_lines: list[str]) -> str:
     # TODO: fill out
-    return []
+    return ""
 
 
 if __name__ == "__main__":
